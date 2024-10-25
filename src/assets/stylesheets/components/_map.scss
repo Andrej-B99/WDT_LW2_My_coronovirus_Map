@@ -1,0 +1,109 @@
+// .map styles the overall map container
+.map {
+  position: relative; // Makes the container position relative for absolute positioning of children
+
+  &,
+  .map-base { // Applies the same styles to both .map and .map-base
+    width: 100%; // Full width of the container
+    height: 100%; // Full height of the container
+    background: $blue-grey-50; // Sets a background color (SCSS variable)
+  }
+}
+
+// Styles for a loading indicator on the map
+.map-loading {
+  position: absolute; // Positioned absolutely within the map container
+  top: 0; // Aligns to the top
+  right: 0; // Aligns to the right
+  bottom: 0; // Aligns to the bottom
+  left: 0; // Aligns to the left
+  color: $blue-grey-200; // Sets text color (SCSS variable)
+  font-family: $font-default; // Sets the font family
+  width: 100%; // Full width
+  height: 4em; // Fixed height for the loading area
+  line-height: 4em; // Centers the text vertically
+  text-align: center; // Centers the text horizontally
+  margin: auto; // Centers the loading indicator
+}
+
+// Styles for map markers with shadow effect
+.map-marker {
+  &[class*="shadow"] { // Targets any class that contains "shadow"
+    filter: blur(5px); // Applies a blur effect
+    opacity: .7; // Sets transparency
+  }
+}
+
+// New styles for custom markers and tooltips
+.icon-marker {
+  display: flex; // Uses flexbox for centering
+  position: relative; // Allows absolute positioning of child elements
+  justify-content: center; // Centers content horizontally
+  align-items: center; // Centers content vertically
+  color: white; // Sets text color to white
+  width: 3.6em; // Width of the marker
+  height: 3.6em; // Height of the marker
+  font-size: .7em; // Sets font size for text within the marker
+  font-weight: bold; // Makes text bold
+  background-color: #FF0000; // Sets background color (can replace with SCSS variable)
+  border-radius: 100%; // Makes the marker circular
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9); // Adds a shadow effect
+
+  &:hover {
+    .icon-marker-tooltip { // Shows tooltip on hover
+      display: block;
+    }
+  }
+}
+
+// Styles for the tooltip that appears on marker hover
+.icon-marker-tooltip {
+  display: none; // Initially hides the tooltip
+  position: absolute; // Positions the tooltip relative to the marker
+  bottom: 100%; // Positions above the marker
+  width: 16em; // Fixed width for the tooltip
+  font-size: 1.4em; // Sets font size for tooltip text
+  padding: 1em; // Adds padding inside the tooltip
+  background-color: #37474F; // Sets background color (can replace with SCSS variable)
+  border-radius: .4em; // Rounds the corners of the tooltip
+  margin-bottom: 1em; // Adds space below the tooltip
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.9); // Adds shadow to the tooltip
+
+  &:before { // Creates a small triangle below the tooltip
+    display: block;
+    position: absolute;
+    bottom: -.6em; // Positions the triangle below the tooltip
+    left: 50%; // Centers the triangle horizontally
+    content: ''; // No text content, just an empty block
+    width: 1.4em; // Width of the triangle
+    height: 1.4em; // Height of the triangle
+    background-color: #37474F; // Same as tooltip background color
+    transform: rotate(45deg); // Rotates the block to form a triangle
+    margin-left: -.7em; // Centers the triangle
+  }
+
+  h2 { // Styles for the main heading inside the tooltip
+    font-size: 1.5em; // Sets font size
+    line-height: 1.2; // Adjusts line height for spacing
+    margin-bottom: .1em; // Space below the heading
+    margin-top: 0; // Removes margin above
+  }
+
+  h3 { // Styles for subheadings inside the tooltip
+    font-size: 1.2em; // Sets font size
+    margin: .1em 0; // Margin above and below
+    font-weight: normal; // Normal font weight
+    color: #B0BEC5; // Sets color (can replace with SCSS variable)
+  }
+
+  ul,
+  p { // Normalizes font weight for list and paragraph
+    font-weight: normal; // Normal font weight
+  }
+
+  ul { // Styles for unordered lists inside the tooltip
+    list-style: none; // Removes bullet points
+    padding: 0; // Removes padding
+    margin: .6em 0 0; // Sets margin above the list
+  }
+}

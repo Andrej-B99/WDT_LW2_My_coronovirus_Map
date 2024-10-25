@@ -1,0 +1,31 @@
+/* components/InfoCenter.css */
+
+/* This class styles the main container for the InfoCenter component */
+.info-center {
+    padding: 20px; /* Adds space inside the container */
+    background-color: #f9f9f9; /* Sets a light gray background color */
+    border-radius: 8px; /* Rounds the corners of the container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    margin: 20px 0; /* Adds space above and below the container */
+}
+
+/* This styles the main heading in the InfoCenter */
+.info-center h2 {
+    color: #333; /* Sets the color of the heading to dark gray for better readability */
+}
+
+/* This styles the secondary headings in the InfoCenter */
+.info-center h3 {
+    color: #007bff; /* Sets the color of subheadings to a bright blue */
+}
+
+/* This styles the unordered list in the InfoCenter */
+.info-center ul {
+    list-style-type: none; /* Removes default bullet points from the list */
+    padding: 0; /* Removes default padding for the list */
+}
+
+/* This styles each list item in the InfoCenter */
+.info-center li {
+    margin: 5px 0; /* Adds space between list items for better separation */
+}
